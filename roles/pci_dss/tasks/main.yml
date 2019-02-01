@@ -1,7 +1,7 @@
 ---
 
 - name: Create pci_dss auditd rules file
-  file:
+  copy:
     src: pci_dss.rules
     dest: /etc/audit/rules.d/
   notify: 
