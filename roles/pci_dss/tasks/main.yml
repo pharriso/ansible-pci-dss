@@ -1,0 +1,22 @@
+---
+
+- name: Create pci_dss auditd rules file
+  file:
+    src: pci_dss.rules
+    dest: /etc/audit/rules.d/
+  notify: 
+    - load_audit_rules
+
+- name: Configure syslog for auditd
+  replace:
+    path: /etc/audisp/plugins.d/syslog.conf
+    regexp: ^active =.*
+    replace: active = yes
+
+- name: Correct permissions on log files
+  file:
+    path: "{{ item }}"
+    mode: 0600
+  with_items:
+    - /var/log/cron
+    - /var/log/boot.log

@@ -1,0 +1,4 @@
+- hosts: all
+  roles:
+     - { role: pci_dss }
+     - { role: RedHatOfficial.rhel7_pci_dss }

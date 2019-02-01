@@ -1,0 +1,4 @@
+---
+
+- name: load_audit_rules
+  shell: augenrules --load
